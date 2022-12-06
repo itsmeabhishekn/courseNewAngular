@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../api.service';
+
 
 @Component({
   selector: 'app-course-view',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./course-view.component.css']
 })
 export class CourseViewComponent {
+
+  constructor(private api:ApiService){
+api.fetchCourses().subscribe(
+  (response)=> {
+    this.data = response;
+    console.log(response)
+  }
+)
+
+  }
+
+  data :any =[]
 
 }

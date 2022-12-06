@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes } from '@angular/router';
-
+import { RouterModule, Routes,Route } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CourseAddComponent } from './course-add/course-add.component';
 import { CourseViewComponent } from './course-view/course-view.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 const myRoute:Routes = [
   {path:"",component:CourseAddComponent},
@@ -18,11 +19,14 @@ const myRoute:Routes = [
   declarations: [
     AppComponent,
     CourseAddComponent,
-    CourseViewComponent
+    CourseViewComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    RouterModule.forRoot(myRoute),
     FormsModule
   ],
   providers: [],
